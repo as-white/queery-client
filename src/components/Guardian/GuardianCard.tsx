@@ -3,7 +3,6 @@ import {Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } fro
 
 export interface GuardianCardProps {
     token: string
-    json: string
   }
   
   export interface GuardianCardState {

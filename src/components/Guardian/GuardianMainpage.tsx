@@ -5,7 +5,6 @@ import { CardColumns } from "reactstrap";
 
 export interface GuardianMainpageProps {
   token: string;
-  json: string;
   results: [];
 }
 
