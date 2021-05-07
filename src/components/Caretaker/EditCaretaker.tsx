@@ -108,7 +108,6 @@ class EditCaretakerProfile extends React.Component<EditCaretakerProfileProps, Ed
         <div> 
         <Button color="danger" onClick={this.toggle}>Update</Button>
         <Modal isOpen={!this.state.modal} toggle={this.toggle}>
-            <ModalHeader>Update Profile</ModalHeader>
           <ModalBody>
       <div>
         <h1>Edit Your Profile!</h1>

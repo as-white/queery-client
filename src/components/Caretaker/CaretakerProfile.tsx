@@ -4,7 +4,6 @@ import CaretakerCard from './CaretakerCard';
 
 export interface CaretakerProfileProps {
   token: string
-  json: string
 }
  
 export interface CaretakerProfileState {

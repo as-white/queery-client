@@ -2,8 +2,7 @@ import * as React from 'react';
 import {Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 
 export interface GuardianCardProps {
-    token: string
-    json: string
+  token: string
   }
   
   export interface GuardianCardState {

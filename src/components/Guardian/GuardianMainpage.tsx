@@ -2,11 +2,10 @@ import React from "react";
 import { CaretakerResponse, Result } from "./GuardianInterface";
 import CaretakerCards from "./CaretakerCards";
 import { CardColumns } from "reactstrap";
+import GuardianCard from "./GuardianCard"
 
 export interface GuardianMainpageProps {
   token: string;
-  json: string;
-  results: [];
 }
 
 export interface GuardianMainpageState {
@@ -46,7 +45,7 @@ class GuardianMainpage extends React.Component<GuardianMainpageProps, GuardianMa
             )
           )
         ) : (
-          <></>
+            <GuardianCard token={this.props.token} />
         )}
       </CardColumns>
     );

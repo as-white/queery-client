@@ -21,13 +21,12 @@ export interface AppProps {
 export interface AppState {
   token: string,
   role: string,
-  results: []
 }
  
 class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
-    this.state = { token: '', role: '', results: [] };
+    this.state = { token: '', role: '', };
   }
 
   componentDidMount() {
@@ -94,10 +93,10 @@ protectedViews () {
             )} */}
           </Route>
           <Route exact path="/caretakermainpage">{this.state.token ? <CaretakerMainpage token = {this.state.token}/> : <Redirect to="/" />}</Route>
-          <Route exact path="/guardianmainpage">{this.state.token ? <GuardianMainpage results={this.state.results} token = {this.state.token}/> : <Redirect to="/" />}</Route>
-          <Route exact path="/caretaker"><CaretakerCard updateOn={this.props.updateOn} updateOff={this.props.updateOff} caretakerToUpdate={this.props.caretakerToUpdate} token={this.state.token}/></Route>
-          <Route exact path="/guardian"><GuardianCard token={this.state.token}/></Route>
-          <CaretakerProfile token = {this.state.token}/>
+          <Route exact path="/guardianmainpage">{this.state.token ? <GuardianMainpage token={this.state.token} /> : <Redirect to="/" />}</Route>
+          <Route exact path="/caretaker"><CaretakerCard token={this.state.token} /></Route>
+           <Route exact path="/guardian"><GuardianCard token={this.state.token}/></Route>
+           <CaretakerProfile token = {this.state.token}/>
           <Route exact path="/guardiancreate"><GuardianProfile token={this.state.token}/></Route>
         </Switch>
         {/* {this.protectedViews()} */}
