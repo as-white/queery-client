@@ -17,11 +17,19 @@ class Auth extends React.Component<AuthProps, AuthState> {
         super(props);
         this.state = { showLogin: true  };
     }
+
+    handleToggle = () => {if(this.state.showLogin === true){
+        this.setState({ showLogin: false })
+    } else {
+        this.setState({showLogin: true })
+    }}
+
+
     render() { 
         return ( 
             <div>
-            <Login updateToken={this.props.updateToken}/>
-            <Signup updateToken={this.props.updateToken}/>
+            {this.state.showLogin === true ? <Login updateToken={this.props.updateToken} handleToggle={this.handleToggle} /> : <Signup updateToken={this.props.updateToken} handleToggle={this.handleToggle}/>}
+
        </div>
          );
     }

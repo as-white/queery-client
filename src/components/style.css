@@ -4,9 +4,9 @@ p, div {
   }
     
   .wrapper {
-    height: 97vh;
     width: 100%;
     display: flex;
+    padding-bottom: 50px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -62,7 +62,7 @@ p, div {
     color: #bbb;
   }
   
-  button {
+  .primarybutton {
     min-width: 100%;
     cursor: pointer;
     margin-right: 0.25em;
@@ -73,7 +73,7 @@ p, div {
     background-color: rgb(171, 106, 173);
     color: #fefefe;
   }
-  button:hover {
+  .primarybutton:hover {
     background-color: rgb(78, 100, 173);
     color: #fefefe;
   }
@@ -106,4 +106,40 @@ p, div {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+  }
+  
+  h1{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(171, 106, 173);
+  }
+
+  .guardianCard {
+    width: 500px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .queery {
+    background: linear-gradient(to right, rgb(255, 209, 123, .6) , rgb(255, 255, 147, .6), #a2ffa24d, rgba(175, 253, 253, 0.6), rgba(255, 255, 255, 0.9), rgba(255, 133, 208, 0.6));
+    margin-top: -30px;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0, .7);
+    position: absolute; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+  }
+
+  .slogan {
+    color: rgb(115, 112, 116);
+    font-weight:bold;
+    font-variant: small-caps;
+    font-style: oblique;
+    font-size: 12px;
+    /* text-shadow: 1px 1px 0px #7c7c7c; */
+  }
+
+  .toggletext{
+    font-size: 12px;
   }

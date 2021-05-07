@@ -1,5 +1,6 @@
 import React from "react";
 import './style.css';
+import {Button} from 'reactstrap';
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
@@ -7,6 +8,7 @@ interface LoginProps {
     name?: any;
     value?: any;
     updateToken: Function;
+    handleToggle: () => void;
  }
  interface LoginState {
     email : string,
@@ -22,8 +24,6 @@ class Login extends React.Component<LoginProps, LoginState>{
    constructor(props: LoginProps) {
       super(props);
       const initialState = {
-         firstname : '',
-         lastname : '',
          email : '',
          password: '',
          role: '',
@@ -61,7 +61,7 @@ console.log(this.state.errors);
        );
        if(validity == true){
           console.log("Login successful!");
-          fetch(`http://localhost:3000/guardian/login`, {
+          fetch(`http://localhost:3000/users/login`, {
             method: 'POST',
             body: JSON.stringify({email: this.state.email, password: this.state.password}),
             headers: new Headers({
@@ -70,12 +70,12 @@ console.log(this.state.errors);
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken)
+            this.props.updateToken(data.sessionToken, data.role)
             console.log(data.sessionToken);
             console.log(data);
         })
-       }else{
-          console.log("Error: cannot login.")
+      //  }else{
+      //     console.log("Error: cannot login.")
        }
      }
 
@@ -97,8 +97,9 @@ console.log(this.state.errors);
                      {errors.password.length > 0 &&  <span style={{color: "red"}}>{errors.password}</span>}
                   </div>                         
                   <div className='submit'>
-                     <button>Login</button>
+                     <button className="primarybutton">Login</button>
                   </div>
+                  <p className="toggletext">"Don't have a Queery account yet? <Button color="link" className="toggle" onClick={this.props.handleToggle}>Sign up!</Button></p>
              </form>
          </div>
       </div>

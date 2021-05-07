@@ -1,5 +1,6 @@
 import React from "react";
 import './style.css';
+import {Button} from 'reactstrap';
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
@@ -7,10 +8,9 @@ interface SignupProps {
     name?: any;
     value?: any;
     updateToken: Function;
+    handleToggle: () => void;
  }
  interface SignUpState {
-   firstname : string,
-   lastname : string,
     email : string,
     password : string,
     role: string,
@@ -25,8 +25,6 @@ class Signup extends React.Component<SignupProps, SignUpState>{
    constructor(props: SignupProps) {
       super(props);
       const initialState = {
-         firstname : '',
-         lastname : '',
          email : '',
          password: '',
          role: '',
@@ -64,16 +62,16 @@ console.log(this.state.errors);
        );
        if(validity == true){
           console.log("Registered successfully.");
-          fetch(`http://localhost:3000/guardian/signup`, {
+          fetch(`http://localhost:3000/users/signup`, {
             method: 'POST',
-            body: JSON.stringify({email: this.state.email, password: this.state.password, firstname: this.state.firstname, lastname: this.state.lastname, role: this.state.role}),
+            body: JSON.stringify({email: this.state.email, password: this.state.password, role: this.state.role}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken)
+            this.props.updateToken(data.sessionToken, data.role)
             console.log(data.sessionToken);
             console.log(data);
         })
@@ -89,14 +87,6 @@ console.log(this.state.errors);
             <div className='form-wrapper'>
                <h2>Sign Up</h2>
                <form onSubmit={this.handleSubmit} noValidate >
-                  <div className='firstname'>
-                     <label htmlFor="firstname">First Name</label>
-                     <input type='text' name='firstname' onChange=            {this.handleChange}/>
-                  </div>
-                  <div className='lastname'>
-                     <label htmlFor="lastname">Last Name</label>
-                     <input type='text' name='lastname' onChange=            {this.handleChange}/>
-                  </div>
                   <div className='email'>
                      <label htmlFor="email">Email</label>
                      <input type='email' name='email' onChange={this.handleChange}/>
@@ -109,16 +99,20 @@ console.log(this.state.errors);
                   </div>
                   <div className='role'>
                   <label htmlFor="items">Account Type:</label>
-
-                    <select id="roles">
+                  <select id="roles" onChange={(e) => this.setState({role: e.target.value})}
+>
                     <option value="">Select</option>
-                    <option value="guardian">Guardian</option>
-                    <option value="caretaker">Caretaker</option>
+                    <option value="Guardian">Guardian</option>
+                    <option value="Caretaker">Caretaker</option>
                     </select>
                   </div>                            
                   <div className='submit'>
-                     <button>Sign Up</button>
+                     <button className="primarybutton">Sign Up</button>
                   </div>
+                  <div className='authlink'>
+                  <br />
+                  <p className="toggletext">Already a member? Sign in <Button color="link" className="toggle" onClick={this.props.handleToggle}>here</Button>.</p>
+               </div>
              </form>
          </div>
       </div>
