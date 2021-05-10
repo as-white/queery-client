@@ -37,7 +37,7 @@ class ProfileViews extends React.Component<ProfileViewsProps, ProfileViewsState>
         // event.preventDefault();
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
     
-        fetch(`http://${APIURL}guardianinfo/mine`, {
+        fetch(`${APIURL}guardianinfo/mine`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

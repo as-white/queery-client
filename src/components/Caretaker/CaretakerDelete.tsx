@@ -35,7 +35,7 @@ class CaretakerDelete extends React.Component<CaretakerDeleteProps, CaretakerDel
 
     deleteProfile = () => {
         let token = this.props.token ? this.props.token: localStorage.getItem("token");
-        fetch(`http://${APIURL}caretakerinfo/${this.props.caretaker.id}`, {
+        fetch(`${APIURL}caretakerinfo/${this.props.caretaker.id}`, {
           method: "DELETE",
           headers: new Headers({
             "Content-Type": "application/json",

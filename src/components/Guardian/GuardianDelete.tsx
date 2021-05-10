@@ -30,7 +30,7 @@ class GuardianDelete extends React.Component<GuardianDeleteProps, GuardianDelete
 
     deleteGuardianProfile = () => {
         let token = this.props.token ? this.props.token: localStorage.getItem("token");
-        fetch(`http://${APIURL}guardianinfo/${this.props.guardian.id}`, {
+        fetch(`${APIURL}guardianinfo/${this.props.guardian.id}`, {
           method: "DELETE",
           headers: new Headers({
             "Content-Type": "application/json",

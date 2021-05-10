@@ -30,7 +30,7 @@ class GuardianMainpage extends React.Component<GuardianMainpageProps, GuardianMa
   componentDidMount () {
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-    fetch(`http://${APIURL}caretakerinfo/`, {
+    fetch(`${APIURL}caretakerinfo/`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',

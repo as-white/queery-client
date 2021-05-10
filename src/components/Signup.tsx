@@ -63,7 +63,7 @@ console.log(this.state.errors);
        );
        if(validity == true){
           console.log("Registered successfully.");
-          fetch(`http://${APIURL}users/signup`, {
+          fetch(`${APIURL}users/signup`, {
             method: 'POST',
             body: JSON.stringify({email: this.state.email, password: this.state.password, role: this.state.role}),
             headers: new Headers({

@@ -55,7 +55,7 @@ export interface CaretakerCardProps {
     // event.preventDefault();
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-    fetch(`http://${APIURL}caretakerinfo/mine`, {
+    fetch(`${APIURL}caretakerinfo/mine`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',

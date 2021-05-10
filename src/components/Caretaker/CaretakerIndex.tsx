@@ -44,7 +44,7 @@ class CaretakerIndex extends React.Component<CaretakerIndexProps, CaretakerIndex
         // event.preventDefault();
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
     
-        fetch(`http://${APIURL}caretakerinfo/`, {
+        fetch(`${APIURL}caretakerinfo/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

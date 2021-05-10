@@ -75,7 +75,7 @@ class CaretakerProfile extends React.Component<CaretakerProfileProps, CaretakerP
   handleSubmit = (event : React.SyntheticEvent) => {
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-       fetch(`http://${APIURL}caretakerinfo/`, {
+       fetch(`${APIURL}caretakerinfo/`, {
          method: 'POST',
          body: JSON.stringify({
           firstname: this.state.firstname,

@@ -55,7 +55,7 @@ class EditGuardianProfile extends React.Component<EditGuardianProfileProps, Edit
     event.preventDefault()
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-       fetch(`http://${APIURL}guardianinfo/${this.props.guardian.id}`, {
+       fetch(`${APIURL}guardianinfo/${this.props.guardian.id}`, {
          method: 'PUT',
          body: JSON.stringify({
           firstname: this.state.firstname,
@@ -94,7 +94,7 @@ class EditGuardianProfile extends React.Component<EditGuardianProfileProps, Edit
         //   // event.preventDefault();
         //   let token = this.props.token ? this.props.token : localStorage.getItem("token");
       
-        //   fetch(`http://${APIURL}guardianinfo/`, {
+        //   fetch(`${APIURL}guardianinfo/`, {
         //       method: 'PUT',
         //       headers: new Headers({
         //           'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ class EditGuardianProfile extends React.Component<EditGuardianProfileProps, Edit
 
         // deleteProfile = ( guardian: any) => {
         //   let token = this.props.token ? this.props.token: localStorage.getItem("token");
-        //   fetch(`http://${APIURL}guardianinfo/${guardian.id}`, {
+        //   fetch(`${APIURL}guardianinfo/${guardian.id}`, {
         //     method: "DELETE",
         //     headers: new Headers({
         //       "Content-Type": "application/json",

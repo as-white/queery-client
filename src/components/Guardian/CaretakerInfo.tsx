@@ -48,7 +48,7 @@ class CaretakerInfo extends React.Component<CaretakerInfoProps, CaretakerInfoSta
     componentDidMount () {
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
     
-        fetch(`http://${APIURL}caretakerinfo/`, {
+        fetch(`${APIURL}caretakerinfo/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
