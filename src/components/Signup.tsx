@@ -6,8 +6,8 @@ import APIURL from '../helpers/evironment'
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
 interface SignupProps {
-    name?: any;
-    value?: any;
+    name?: string;
+    value?: string;
     updateToken: Function;
     handleToggle: () => void;
  }
@@ -55,7 +55,7 @@ this.setState(Object.assign(this.state, { errors,[name]: value }));
 console.log(this.state.errors);
 }
 
-     handleSubmit = (event : any) => {
+     handleSubmit = (event : React.SyntheticEvent) => {
        event.preventDefault();
        let validity = true;
        Object.values(this.state.errors).forEach(

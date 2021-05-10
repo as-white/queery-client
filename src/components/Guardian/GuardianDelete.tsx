@@ -4,7 +4,17 @@ import APIURL from '../../helpers/evironment'
 
 export interface GuardianDeleteProps {
     token: string;
-    guardian: any;
+    guardian: {
+      firstname: string,
+      lastname: string,
+      citylocation: string,
+      statelocation: string,
+      zipcode: string,
+      street: string,
+      modal: boolean,
+      id?: number,
+      guardian: []
+    }
     fetchGuardianProfile: Function;
 }
  

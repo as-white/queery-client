@@ -14,7 +14,8 @@ export interface ProfileViewsState {
     statelocation: string,
     zipcode: string,
     street: string,
-    guardian: []
+    guardian: [],
+    id?: number
 }
  
 class ProfileViews extends React.Component<ProfileViewsProps, ProfileViewsState> {
@@ -27,7 +28,8 @@ class ProfileViews extends React.Component<ProfileViewsProps, ProfileViewsState>
         statelocation: "",
         zipcode: "",
         street: "",
-        guardian: []
+        guardian: [],
+        id: undefined
          };
     }
 

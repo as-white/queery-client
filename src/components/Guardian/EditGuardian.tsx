@@ -8,7 +8,17 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 export interface EditGuardianProfileProps {
   token: string
-  guardian: any
+  guardian: {
+    firstname: string,
+    lastname: string,
+    citylocation: string,
+    statelocation: string,
+    zipcode: string,
+    street: string,
+    modal: boolean,
+    guardian: [],
+    id?: number
+  }
   fetchGuardianProfile: Function;
 }
  
@@ -20,7 +30,8 @@ statelocation: string,
 zipcode: string,
 street: string,
 modal: boolean,
-guardian: []
+guardian: [],
+id?: number
 }
  
 class EditGuardianProfile extends React.Component<EditGuardianProfileProps, EditGuardianProfileState> {
@@ -34,6 +45,7 @@ class EditGuardianProfile extends React.Component<EditGuardianProfileProps, Edit
       zipcode: this.props.guardian.zipcode,
       street: this.props.guardian.street,
       modal: true,
+      id: this.props.guardian.id,
       guardian: []
     };
     // this.handleSubmit = this.handleSubmit.bind(this);

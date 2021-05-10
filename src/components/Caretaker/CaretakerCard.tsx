@@ -23,6 +23,7 @@ export interface CaretakerCardProps {
     experience: string,
     preferredage: string,
     distancewilling: string,
+    id?: number,
     caretaker: []
     }
 
@@ -42,6 +43,7 @@ export interface CaretakerCardProps {
         experience: "",
         preferredage: "",
         distancewilling: "",
+        id: undefined,
         caretaker: []
       };
     }
@@ -77,7 +79,7 @@ export interface CaretakerCardProps {
         <div>
           <div className='wrapper'>
             
-          {this.state.caretaker.map((caretaker: any) => (
+          {this.state.caretaker.map((caretaker: CaretakerCardState) => (
             <Card className="caretakerCard">
               <h2 className="welcome"><i>Welcome, {caretaker.firstname}!</i></h2>
               <CardImg top width="200px" src={caretaker.photourl} alt="Card image cap" />

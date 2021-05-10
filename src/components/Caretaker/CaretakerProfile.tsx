@@ -72,7 +72,7 @@ class CaretakerProfile extends React.Component<CaretakerProfileProps, CaretakerP
   //   setSessionToken('');
   // }
 
-  handleSubmit = (event : any) => {
+  handleSubmit = (event : React.SyntheticEvent) => {
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
        fetch(`http://${APIURL}caretakerinfo/`, {

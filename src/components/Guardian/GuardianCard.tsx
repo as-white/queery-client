@@ -21,7 +21,9 @@ export interface GuardianCardProps {
     experience: string,
     preferredage: string,
     distancewilling: string,
-    guardian: []
+    guardian: [],
+    id?: number,
+    modal: boolean
     }
 
   class GuardianCard extends React.Component<GuardianCardProps, GuardianCardState> {
@@ -40,7 +42,9 @@ export interface GuardianCardProps {
         experience: "",
         preferredage: "",
         distancewilling: "",
-        guardian: []
+        guardian: [],
+        id: undefined,
+        modal: true
       };
     }
 
@@ -73,7 +77,7 @@ export interface GuardianCardProps {
       return (
         <div>
           <div className='wrapper'>
-          {this.state.guardian.map((guardian: any) => (
+          {this.state.guardian.map((guardian: GuardianCardState) => (
             <Card className="guardianCard">
               <h3 className="welcome2"><i>Welcome, {guardian.firstname}!</i></h3>
               <CardBody>

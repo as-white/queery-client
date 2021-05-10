@@ -4,7 +4,22 @@ import APIURL from '../../helpers/evironment'
 
 export interface CaretakerDeleteProps {
     token: string;
-    caretaker: any;
+    caretaker: {
+      firstname: string,
+      lastname: string,
+      photourl: string,
+      citylocation: string,
+      statelocation: string,
+      zipcode: string,
+      street: string,
+      bio: string,
+      age: string,
+      experience: string,
+      preferredage: string,
+      distancewilling: string,
+      id?: number,
+      caretaker: []
+      }
     fetchMyProfile: Function;
 }
  

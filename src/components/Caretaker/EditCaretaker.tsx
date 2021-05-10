@@ -7,7 +7,22 @@ import APIURL from '../../helpers/evironment'
 
 export interface EditCaretakerProfileProps {
   token: string
-  caretaker: any
+  caretaker: {
+    firstname: string,
+    lastname: string,
+    photourl: string,
+    citylocation: string,
+    statelocation: string,
+    zipcode: string,
+    street: string,
+    bio: string,
+    age: string,
+    experience: string,
+    preferredage: string,
+    distancewilling: string,
+    caretaker: [],
+    id?: number
+    }
   fetchMyProfile: Function;
 }
  
@@ -26,7 +41,8 @@ preferredage: string,
 distancewilling: string,
 modal: boolean,
 caretaker: Result[],
-loading: boolean
+loading: boolean,
+id?: number
 }
  
 class EditCaretakerProfile extends React.Component<EditCaretakerProfileProps, EditCaretakerProfileState> {
@@ -45,6 +61,7 @@ class EditCaretakerProfile extends React.Component<EditCaretakerProfileProps, Ed
           experience: this.props.caretaker.experience,
           preferredage: this.props.caretaker.preferredage,
           distancewilling: this.props.caretaker.distancewilling,
+          id: this.props.caretaker.id,
       modal: true,
       caretaker: [],
       loading: false

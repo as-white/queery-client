@@ -14,6 +14,7 @@ citylocation: string,
 statelocation: string,
 zipcode: string,
 street: string,
+id?: number
 }
  
 class GuardianProfile extends React.Component<GuardianProfileProps, GuardianProfileState> {
@@ -25,7 +26,8 @@ class GuardianProfile extends React.Component<GuardianProfileProps, GuardianProf
       citylocation: "",
       statelocation: "",
       zipcode: "",
-      street: ""
+      street: "",
+      id: undefined
     };
   }
 

@@ -24,7 +24,7 @@ class GuardianPosts extends React.Component<GuardianPostsProps, GuardianPostsSta
         };
     }
 
-    handleSubmit = (event : any) => {
+    handleSubmit = (event : React.SyntheticEvent) => {
         event.preventDefault();
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
     
@@ -95,7 +95,7 @@ class GuardianPosts extends React.Component<GuardianPostsProps, GuardianPostsSta
         </div>
     </Form>
     </div>
-    {this.state.guardian.map((guardian: any) => (
+    {this.state.guardian.map((guardian: GuardianPostsState) => (
     <div className="wrapper">
     <Col xs="6">
     <Card className="posts">
