@@ -226,10 +226,7 @@ p, div {
     position: relative;
     min-height: 100vh;
   }
-  
-  #content-wrap {
-    padding-bottom: 22rem;    /* Footer height */
-  }
+
 
   .copyright{
     background-color: rgb(202, 154, 204);
