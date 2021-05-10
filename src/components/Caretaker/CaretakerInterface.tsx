@@ -18,5 +18,5 @@ export interface Result {
 }
 
 export interface CaretakerResponse {
-    results: [];
+    results: Result[];
 }

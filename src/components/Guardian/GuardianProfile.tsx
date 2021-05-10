@@ -1,6 +1,7 @@
 
 import * as React from 'react';
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+import APIURL from '../../helpers/evironment'
 
 export interface GuardianProfileProps {
   token: string
@@ -33,7 +34,7 @@ class GuardianProfile extends React.Component<GuardianProfileProps, GuardianProf
     event.preventDefault();
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-       fetch(`http://localhost:3000/guardianinfo/`, {
+       fetch(`http://${APIURL}guardianinfo/`, {
          method: 'POST',
          body: JSON.stringify({
           firstname: this.state.firstname,

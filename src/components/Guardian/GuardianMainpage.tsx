@@ -1,11 +1,14 @@
 import React from "react";
 import { CaretakerResponse, Result } from "./GuardianInterface";
 import CaretakerCards from "./CaretakerCards";
-import { CardColumns } from "reactstrap";
+import { CardColumns, Input, CardGroup, CardDeck } from "reactstrap";
+import GuardianCard from "./GuardianCard";
+import CaretakerInfo from './CaretakerInfo';
+import APIURL from '../../helpers/evironment';
 
 export interface GuardianMainpageProps {
   token: string;
-  results: [];
+  // editSearchTerm?: string;
 }
 
 export interface GuardianMainpageState {
@@ -18,10 +21,16 @@ class GuardianMainpage extends React.Component<GuardianMainpageProps, GuardianMa
     this.state = { caretaker: [] };
   }
 
+  // editSearchTerm = (e: any) => {
+  //   let search = this.state.caretaker;
+  //   this.setState({ caretaker: e.target.value });
+  //   console.log(search);
+  // };
+
   componentDidMount () {
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/caretakerinfo/`, {
+    fetch(`http://${APIURL}caretakerinfo/`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',
@@ -41,13 +50,14 @@ class GuardianMainpage extends React.Component<GuardianMainpageProps, GuardianMa
         {this.state.caretaker.length > 0 ? (
           this.state.caretaker.map(
             (caretaker: Result) => (
-              <CaretakerCards caretaker={caretaker}/>
+              <CaretakerCards token={this.props.token} caretaker={caretaker}/>
             )
           )
         ) : (
-          <></>
+            <GuardianCard token={this.props.token} />
         )}
       </CardColumns>
+      
     );
   }
 }

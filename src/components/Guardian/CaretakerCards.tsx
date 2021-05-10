@@ -9,27 +9,28 @@ import {
   CardSubtitle,
   Button,
 } from "reactstrap";
+import CaretakerInfo from './CaretakerInfo';
+import APIURL from '../../helpers/evironment'
 
 export interface CaretakerCardsProps {
   caretaker: Result;
-  
+  token: string
 }
 
 const CaretakerCards: React.SFC<CaretakerCardsProps> = (props) => {
   return (
-    <div>
+    <div className="mainpage">
       <Card>
         <CardImg
-          top
-          width="10px"
           src={props.caretaker.photourl}
           alt="Card image cap"
         />
         <CardBody>
-          <CardTitle>{props.caretaker.firstname} {props.caretaker.lastname}</CardTitle>
-          <CardSubtitle>{props.caretaker.citylocation}, {props.caretaker.statelocation}</CardSubtitle>
-          <CardSubtitle>{props.caretaker.zipcode}</CardSubtitle>
+          <CardTitle><b><h3>{props.caretaker.firstname} {props.caretaker.lastname}</h3></b></CardTitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">{props.caretaker.citylocation}, {props.caretaker.statelocation}</CardSubtitle>
+          <CardSubtitle  tag="h6" className="mb-2 text-muted">{props.caretaker.zipcode}</CardSubtitle>
         </CardBody>
+        <CaretakerInfo token={props.token} caretaker={props.caretaker}/>
       </Card>
     </div>
   );

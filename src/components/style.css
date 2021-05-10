@@ -63,14 +63,13 @@ p, div {
   }
   
   .primarybutton {
-    min-width: 100%;
     cursor: pointer;
     margin-right: 0.25em;
     margin-top: 0.5em;
     padding:  0.938em;
     border: none;
     border-radius: 4px;
-    background-color: rgb(171, 106, 173);
+    background-color:rgb(255, 149, 149);
     color: #fefefe;
   }
   .primarybutton:hover {
@@ -123,7 +122,7 @@ p, div {
   }
 
   .queery {
-    background: linear-gradient(to right, rgb(255, 209, 123, .6) , rgb(255, 255, 147, .6), #a2ffa24d, rgba(175, 253, 253, 0.6), rgba(255, 255, 255, 0.9), rgba(255, 133, 208, 0.6));
+    background:rgb(255, 149, 149);
     margin-top: -30px;
     box-shadow: 0 2px 2px -2px rgba(0,0,0, .7);
     position: absolute; /* Set the navbar to fixed position */
@@ -132,7 +131,7 @@ p, div {
   }
 
   .slogan {
-    color: rgb(115, 112, 116);
+    color: rgb(255, 255, 255);
     font-weight:bold;
     font-variant: small-caps;
     font-style: oblique;
@@ -142,4 +141,108 @@ p, div {
 
   .toggletext{
     font-size: 12px;
+    text-align: center;
+  }
+
+  .caretakerCard{
+    width: 500px;
+  }
+
+  .postButton{
+    height: auto;
+  }
+
+  .postCards{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+  }
+
+  .mainpage{
+    width: 300px;
+  }
+
+  .footer-wrapper{
+    display: flex;
+    flex-direction: row;
+    background-color:rgb(202, 154, 204);
+  }
+
+  .section-1{
+    width: 60vw;
+    padding-left: 20px;
+  }
+
+  .section-2{
+    width: 30vw;
+    padding-left: 30px;
+  }
+
+  footer {
+    background-color: rgb(202, 154, 204);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer {
+    color:rgb(255, 255, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .footerabout{
+    color:rgb(94, 92, 95);
+  }
+
+  a:visited {
+    color: rgb(87, 87, 87);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  .toggle{
+    font-size: 12px;
+  }
+
+  .welcome{
+    padding: 30px;
+  }
+
+  .resources{
+    color:#ff7d7d;
+    padding-top: 30px;
+    margin-left: -50px;
+  }
+
+  h6 {
+    color:rgb(255, 149, 149);
+  }
+
+  .signout{
+    background-color: rgb(202, 154, 204);
+  }
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 22rem;    /* Footer height */
+  }
+
+  .copyright{
+    background-color: rgb(202, 154, 204);
+  }
+
+  .posts{
+    min-width: 400px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .welcome2{
+    margin-left: auto;
+    padding: 10px;
   }

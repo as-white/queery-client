@@ -1,8 +1,11 @@
 import * as React from 'react';
 import {Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
+import EditGuardian from './EditGuardian';
+import GuardianDelete from './GuardianDelete';
+import APIURL from '../../helpers/evironment'
 
 export interface GuardianCardProps {
-    token: string
+  token: string
   }
   
   export interface GuardianCardState {
@@ -43,11 +46,11 @@ export interface GuardianCardProps {
 
  
 
-    fetchMyProfile = () => {
+    fetchGuardianProfile = () => {
     // event.preventDefault();
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/guardianinfo/mine`, {
+    fetch(`http://${APIURL}guardianinfo/mine`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',
@@ -62,7 +65,7 @@ export interface GuardianCardProps {
   }
 
   componentDidMount = () => {
-    this.fetchMyProfile()
+    this.fetchGuardianProfile()
 }
 
 
@@ -72,10 +75,13 @@ export interface GuardianCardProps {
           <div className='wrapper'>
           {this.state.guardian.map((guardian: any) => (
             <Card className="guardianCard">
+              <h3 className="welcome2"><i>Welcome, {guardian.firstname}!</i></h3>
               <CardBody>
                   <CardTitle tag="h5">{guardian.firstname} {guardian.lastname}</CardTitle>
                   <CardSubtitle tag="h6" className="mb-2 text-muted">{guardian.citylocation}, {guardian.statelocation} {guardian.zipcode}</CardSubtitle>
                   <CardSubtitle tag="h6" className="mb-2 text-muted">{guardian.street}</CardSubtitle>
+                  <EditGuardian fetchGuardianProfile={this.fetchGuardianProfile} token={this.props.token} guardian={guardian}/>
+                  <GuardianDelete fetchGuardianProfile={this.fetchGuardianProfile} token={this.props.token} guardian={guardian} />
               </CardBody>
           </Card>
           ))}

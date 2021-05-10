@@ -1,45 +1,33 @@
 import * as React from 'react';
-import CaretakerCard from './CaretakerCard';
-import CaretakerProfile from './CaretakerProfile';
-import APIURL from '../../helpers/evironment';
+import GuardianCard from './GuardianCard'
+import GuardianProfile from './GuardianProfile'
+import APIURL from '../../helpers/evironment'
 
-export interface CaretakerMainPageProps {
+export interface ProfileViewsProps {
     token: string;
 }
  
-export interface CaretakerMainPageState {
+export interface ProfileViewsState {
     firstname: string,
     lastname: string,
-    photourl: string,
     citylocation: string,
     statelocation: string,
     zipcode: string,
     street: string,
-    bio: string,
-    age: string,
-    experience: string,
-    preferredage: string,
-    distancewilling: string,
-    caretaker: []
+    guardian: []
 }
  
-class CaretakerMainPage extends React.Component<CaretakerMainPageProps, CaretakerMainPageState> {
-    constructor(props: CaretakerMainPageProps) {
+class ProfileViews extends React.Component<ProfileViewsProps, ProfileViewsState> {
+    constructor(props: ProfileViewsProps) {
         super(props);
         this.state = { 
         firstname: "",
         lastname: "",
-        photourl: "",
         citylocation: "",
         statelocation: "",
         zipcode: "",
         street: "",
-        bio: "",
-        age: "",
-        experience: "",
-        preferredage: "",
-        distancewilling: "",
-        caretaker: []
+        guardian: []
          };
     }
 
@@ -47,7 +35,7 @@ class CaretakerMainPage extends React.Component<CaretakerMainPageProps, Caretake
         // event.preventDefault();
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
     
-        fetch(`http://${APIURL}caretakerinfo/mine`, {
+        fetch(`http://${APIURL}guardianinfo/mine`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -56,7 +44,7 @@ class CaretakerMainPage extends React.Component<CaretakerMainPageProps, Caretake
         }).then(
             (response) => response.json())
           .then((json) => {console.log(json);
-          this.setState({caretaker: json});
+          this.setState({guardian: json});
           
         });
       }
@@ -68,12 +56,12 @@ class CaretakerMainPage extends React.Component<CaretakerMainPageProps, Caretake
     render() { 
         return ( 
             <div>
-                {this.state.caretaker.length > 0 ?
-                <CaretakerCard token={this.props.token}/> : <CaretakerProfile token={this.props.token}/>
-                }
-                </div>
+            {this.state.guardian.length > 0 ?
+            <GuardianCard token={this.props.token}/> : <GuardianProfile token={this.props.token}/>
+            }
+            </div>
          );
     }
 }
  
-export default CaretakerMainPage;
+export default ProfileViews;

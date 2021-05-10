@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 import CaretakerCard from './CaretakerCard';
+import APIURL from '../../helpers/evironment'
 
 export interface CaretakerProfileProps {
   token: string
@@ -18,7 +19,8 @@ bio: string,
 age: string,
 experience: string,
 preferredage: string,
-distancewilling: string
+distancewilling: string,
+loading: boolean
 }
  
 class CaretakerProfile extends React.Component<CaretakerProfileProps, CaretakerProfileState> {
@@ -36,9 +38,29 @@ class CaretakerProfile extends React.Component<CaretakerProfileProps, CaretakerP
       age: "",
       experience: "",
       preferredage: "",
-      distancewilling: ""
+      distancewilling: "",
+      loading: false
     };
   }
+
+  uploadImage = async (e: any) => {
+    const data = new FormData();
+    const files = e.target.files;
+    data.append("file", files[0]);
+    data.append("upload_preset", "artisan-goods-cloudinary");
+    // this.setState({ loading: true });
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/natescloudinary/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const file = await res.json();
+    this.setState({ photourl: file.secure_url });
+    this.setState({ loading: false });
+
+  };
 
   // componentDidMount() {
   //   if (localStorage.getItem('token')){
@@ -53,7 +75,7 @@ class CaretakerProfile extends React.Component<CaretakerProfileProps, CaretakerP
   handleSubmit = (event : any) => {
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-       fetch(`http://localhost:3000/caretakerinfo/`, {
+       fetch(`http://${APIURL}caretakerinfo/`, {
          method: 'POST',
          body: JSON.stringify({
           firstname: this.state.firstname,
@@ -117,9 +139,16 @@ class CaretakerProfile extends React.Component<CaretakerProfileProps, CaretakerP
 />
                   </div>
                   <div className='photourl'>
-                  <label htmlFor="photourl">Photo </label>
-                  <input type='text' name='photourl' onChange={(e) => this.setState({photourl: e.target.value})}
-/>
+                  {/* <label htmlFor="photourl">Photo </label>
+                  <input type='text' name='photourl' onChange={(e) => this.setState({photourl: e.target.value})} */}
+                  <label htmlFor="photoURL">Upload image</label>
+                  <input type="file" onChange={this.uploadImage} />
+            {this.state.loading ? (
+              <h6>Loading...</h6>
+            ) : (
+              <img src={this.state.photourl} style={{ width: "120px" }} />
+            )}
+            <br />
                   </div>
                   <div className='citylocation'>
                   <label htmlFor="citylocation">City </label>

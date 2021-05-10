@@ -3,6 +3,7 @@ import './style.css';
 import {Button} from 'reactstrap';
 import Login from './Login'
 import Signup from './Signup'
+import { Container, Row, Col } from 'reactstrap';
 
 export interface AuthProps {
     updateToken: Function;
@@ -27,10 +28,20 @@ class Auth extends React.Component<AuthProps, AuthState> {
 
     render() { 
         return ( 
-            <div>
+        <Container>
+            <Row>
+            <Col>
+            <div className="wrapper">
+                {/* <h1>Welcome to Queery.</h1>
+                <br/> */}
+                <img src="https://i.imgur.com/MEyMEDm.png" />
+                </div>
+                </Col>
+                <Col>
             {this.state.showLogin === true ? <Login updateToken={this.props.updateToken} handleToggle={this.handleToggle} /> : <Signup updateToken={this.props.updateToken} handleToggle={this.handleToggle}/>}
-
-       </div>
+            </Col>
+            </Row>
+            </Container>
          );
     }
 }

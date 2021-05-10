@@ -1,6 +1,7 @@
 import React from "react";
 import './style.css';
 import {Button} from 'reactstrap';
+import APIURL from '../helpers/evironment' 
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
@@ -62,7 +63,7 @@ console.log(this.state.errors);
        );
        if(validity == true){
           console.log("Registered successfully.");
-          fetch(`http://localhost:3000/users/signup`, {
+          fetch(`http://${APIURL}users/signup`, {
             method: 'POST',
             body: JSON.stringify({email: this.state.email, password: this.state.password, role: this.state.role}),
             headers: new Headers({

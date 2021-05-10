@@ -1,7 +1,8 @@
 import * as React from 'react';
 import CaretakerCard from './CaretakerCard';
 import {Container} from 'reactstrap';
-import EditCaretaker from './EditCaretaker'
+import EditCaretaker from './EditCaretaker';
+import APIURL from '../../helpers/evironment'
 
 export interface CaretakerIndexProps {
     token: string;
@@ -43,7 +44,7 @@ class CaretakerIndex extends React.Component<CaretakerIndexProps, CaretakerIndex
         // event.preventDefault();
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
     
-        fetch(`http://localhost:3000/caretakerinfo/mine`, {
+        fetch(`http://${APIURL}caretakerinfo/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -70,7 +71,7 @@ class CaretakerIndex extends React.Component<CaretakerIndexProps, CaretakerIndex
         return (
             <Container> 
             <CaretakerCard token={this.props.token}/>
-            {this.state.updateActive ? <EditCaretaker token={this.props.token}/> : <></>}
+            {/* {this.state.updateActive ? <EditCaretaker token={this.props.token}/> : <></>} */}
          </Container>
          );
     }

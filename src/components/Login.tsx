@@ -1,6 +1,7 @@
 import React from "react";
 import './style.css';
 import {Button} from 'reactstrap';
+import APIURL from '../helpers/evironment' 
 
 const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
 
@@ -61,7 +62,7 @@ console.log(this.state.errors);
        );
        if(validity == true){
           console.log("Login successful!");
-          fetch(`http://localhost:3000/users/login`, {
+          fetch(`http://${APIURL}users/login`, {
             method: 'POST',
             body: JSON.stringify({email: this.state.email, password: this.state.password}),
             headers: new Headers({
@@ -99,7 +100,7 @@ console.log(this.state.errors);
                   <div className='submit'>
                      <button className="primarybutton">Login</button>
                   </div>
-                  <p className="toggletext">"Don't have a Queery account yet? <Button color="link" className="toggle" onClick={this.props.handleToggle}>Sign up!</Button></p>
+                  <p className="toggletext">Don't have a Queery account yet? <Button color="link" size="sm" className="toggle" onClick={this.props.handleToggle}>Sign up!</Button></p>
              </form>
          </div>
       </div>
