@@ -36,7 +36,7 @@ class GuardianProfile extends React.Component<GuardianProfileProps, GuardianProf
     event.preventDefault();
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-       fetch(`${APIURL}guardianinfo/`, {
+       fetch(`${APIURL}/guardianinfo/`, {
          method: 'POST',
          body: JSON.stringify({
           firstname: this.state.firstname,

@@ -54,7 +54,7 @@ export interface GuardianCardProps {
     // event.preventDefault();
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-    fetch(`${APIURL}guardianinfo/mine`, {
+    fetch(`${APIURL}/guardianinfo/mine`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',

@@ -92,7 +92,7 @@ class EditCaretakerProfile extends React.Component<EditCaretakerProfileProps, Ed
     event.preventDefault()
     let token = this.props.token ? this.props.token : localStorage.getItem("token");
 
-       fetch(`${APIURL}caretakerinfo/${this.props.caretaker.id}`, {
+       fetch(`${APIURL}/caretakerinfo/${this.props.caretaker.id}`, {
          method: 'PUT',
          body: JSON.stringify({
           firstname: this.state.firstname,

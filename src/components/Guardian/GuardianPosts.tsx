@@ -28,7 +28,7 @@ class GuardianPosts extends React.Component<GuardianPostsProps, GuardianPostsSta
         event.preventDefault();
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
     
-           fetch(`${APIURL}posts/`, {
+           fetch(`${APIURL}/posts/`, {
              method: 'POST',
              body: JSON.stringify({
               firstname: this.state.firstname,
@@ -56,7 +56,7 @@ class GuardianPosts extends React.Component<GuardianPostsProps, GuardianPostsSta
             // event.preventDefault();
             let token = this.props.token ? this.props.token : localStorage.getItem("token");
         
-            fetch(`${APIURL}posts/`, {
+            fetch(`${APIURL}/posts/`, {
                 method: 'GET',
                 headers: new Headers({
                     'Content-Type': 'application/json',

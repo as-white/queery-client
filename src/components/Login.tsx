@@ -62,7 +62,7 @@ console.log(this.state.errors);
        );
        if(validity == true){
           console.log("Login successful!");
-          fetch(`${APIURL}users/login`, {
+          fetch(`${APIURL}/users/login`, {
             method: 'POST',
             body: JSON.stringify({email: this.state.email, password: this.state.password}),
             headers: new Headers({
